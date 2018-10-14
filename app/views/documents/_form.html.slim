@@ -1,0 +1,26 @@
+= form_with(model: document, local: true) do |form|
+  - if document.errors.any?
+    #error_explanation
+      h2
+        = pluralize(document.errors.count, "error")
+        |  prohibited this document from being saved:
+      ul
+        - document.errors.full_messages.each do |message|
+          li
+            = message
+  div
+    = form.label :title
+    br
+    = form.text_field :title
+  div
+    = form.label :markdown
+    br
+    = form.text_area :markdown
+  div
+    p
+      | Html
+    == document.html
+    br
+  .actions
+    = submit_tag 'Preview', :name => 'preview_button'
+    = form.submit

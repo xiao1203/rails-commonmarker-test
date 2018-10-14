@@ -1,0 +1,18 @@
+p#notice
+  = notice
+div
+  div
+    h3
+      | title
+    = @document.title
+  div
+    h3
+      | markdown
+    = simple_format(@document.markdown)
+  div
+    h3
+      | html
+    = @document.html&.html_safe
+= link_to 'Edit', edit_document_path(@document)
+|  | 
+= link_to 'Back', documents_path

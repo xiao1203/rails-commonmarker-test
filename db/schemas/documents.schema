@@ -1,0 +1,7 @@
+create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+      t.text :title
+      t.text :markdown
+      t.text :html
+
+      t.timestamps
+end
